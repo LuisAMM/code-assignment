@@ -56,7 +56,7 @@ public class TransformCurrencyToWordsService : ITransformCurrencyToWordsService
             {
                 stringResult = "zero dollars ";
             }
-            stringResult += $"and {tensDecimalsString} cents";
+            stringResult += $"and {tensDecimalsString} cent{(tensDecimals > 1 ? "s" : "")}";
         }
 
         return new CurrencyResult(stringResult);
@@ -73,18 +73,13 @@ public class TransformCurrencyToWordsService : ITransformCurrencyToWordsService
         var hundreds = number / Hundred;
 
         var result = "";
-        if (hundreds == 0)
+        if(hundreds > 0)
         {
-            result = TensToWords(tens);
+            result += $"{TensToWords(hundreds)} hundred";
         }
-        else if (tens == 0)
+        if(tens > 0)
         {
-            result = $"{TensToWords(hundreds)} hundred";
-        }
-        else
-        {
-            result = $"{TensToWords(hundreds)} hundred {TensToWords(tens)}";
-            
+            result += hundreds > 0 ? $" {TensToWords(tens)}" : TensToWords(tens);
         }
 
         return result;
