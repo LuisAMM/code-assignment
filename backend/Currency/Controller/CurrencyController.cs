@@ -12,7 +12,7 @@ namespace backend.Currency.Controller;
 public class CurrencyController(ITransformCurrencyToWordsService transformCurrencyToWordsService) : ControllerBase
 {
     [HttpGet]
-    public Results<Ok<CurrencyResultDto>, BadRequest<CurrencyError>> ConvertToDollar([FromQuery] long amount)
+    public Results<Ok<CurrencyResultDto>, BadRequest<CurrencyError>> ConvertToDollar([FromQuery] decimal amount)
     {
         var result = transformCurrencyToWordsService.ToDollars(amount);
         if (result.IsFailed)
