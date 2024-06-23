@@ -1,4 +1,4 @@
-/backend/.idea/**
-/backend/obj/**
-/backend/bin/**
-.idea/**
+.idea/
+obj/
+bin/
+*.DotSettings.user

@@ -13,4 +13,26 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Backend.Test\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Backend.Test\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Backend.Test\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Backend.Test\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Backend.Test\obj\Backend.Test.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Backend.Test\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Backend.Test\obj\project.packagespec.json" />
+    </ItemGroup>
+
 </Project>

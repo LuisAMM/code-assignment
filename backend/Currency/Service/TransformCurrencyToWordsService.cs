@@ -59,7 +59,7 @@ public class TransformCurrencyToWordsService : ITransformCurrencyToWordsService
             stringResult += $"and {tensDecimalsString} cent{(tensDecimals > 1 ? "s" : "")}";
         }
 
-        return new CurrencyResult(stringResult);
+        return new CurrencyResult(stringResult.Trim());
     }
 
     private static string HundredsToWords(long number)
@@ -105,7 +105,7 @@ public class TransformCurrencyToWordsService : ITransformCurrencyToWordsService
         {
             words = teens[tenRemainder];
         }
-        else if(tenDivision > 1)
+        else if(tenDivision >= 1)
         {
             words = tenRemainder == 0 ? tens[tenDivision] : $"{tens[tenDivision]}-{ones[tenRemainder]}";
         }
