@@ -19,8 +19,7 @@ public class CurrencyController(ITransformCurrencyToWordsService transformCurren
         {
             return result switch
             {
-                _ when result.HasError(e => e is OutOfRangeError) => TypedResults.BadRequest(
-                    new CurrencyError(ErrorType.OutOfRange)),
+                _ when result.HasError(e => e is OutOfRangeError) => TypedResults.BadRequest(new CurrencyError(ErrorType.OutOfRange)),
                 _ => TypedResults.BadRequest(new CurrencyError(ErrorType.Generic))
             };
         }

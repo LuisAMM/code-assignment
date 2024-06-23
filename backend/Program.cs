@@ -6,6 +6,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        const string allowAllOrigins = "AllowAllOrigins";
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
@@ -18,6 +19,16 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddCors(opt =>
+        {
+            opt.AddPolicy(name: allowAllOrigins, builderOptions =>
+            {
+                builderOptions.AllowAnyOrigin();
+                builderOptions.AllowAnyHeader();
+                builderOptions.AllowAnyMethod();
+            });
+        });
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -28,6 +39,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+        app.UseCors(allowAllOrigins);
         app.UseAuthorization();
 
         app.MapControllers();
