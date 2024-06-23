@@ -1,12 +1,15 @@
 <form [formGroup]="currencyConverterForm" class="form-container">
-  <div class="">
-    <mat-form-field>
-      <mat-label>Enter an amount</mat-label>
-      <input matInput placeholder="85" formControlName="amount">
-      <mat-error *ngIf="currencyConverterForm.invalid">{{ errorMessage }}</mat-error>
-    </mat-form-field>
-    <p *ngIf="resultAmount.length > 0">{{ resultAmount }}</p>
-  </div>
-  <button mat-raised-button (click)="onSubmit()" [disabled]="currencyConverterForm.invalid">Submit</button>
-</form>
+  <mat-form-field>
+    <mat-label>Enter an amount</mat-label>
+    <input matInput placeholder="85" formControlName="amount" type="number">
+    <mat-error *ngIf="currencyConverterForm.controls.amount.invalid">Invalid amount</mat-error>
+  </mat-form-field>
 
+  <div class="result-container" *ngIf="resultAmount.length > 0">
+    <p>{{ resultAmount }}</p>
+  </div>
+
+  <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()"
+          [disabled]="currencyConverterForm.invalid">Submit
+  </button>
+</form>
