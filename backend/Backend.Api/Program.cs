@@ -1,6 +1,6 @@
-using backend.Currency;
+using Backend.Api.Currency;
 
-namespace backend;
+namespace Backend.Api;
 
 public class Program
 {
