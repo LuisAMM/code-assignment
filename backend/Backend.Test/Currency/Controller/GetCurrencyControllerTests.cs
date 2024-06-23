@@ -1,7 +1,6 @@
-using backend.Currency.Controller;
-using backend.Currency.Dto;
-using backend.Currency.Service;
-using FluentResults;
+using Backend.Api.Currency.Controller;
+using Backend.Api.Currency.Dto;
+using Backend.Api.Currency.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 

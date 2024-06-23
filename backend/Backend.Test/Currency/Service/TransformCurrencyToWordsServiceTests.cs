@@ -1,5 +1,5 @@
-using backend.Currency.Domain.Errors;
-using backend.Currency.Service;
+using Backend.Api.Currency.Domain.Errors;
+using Backend.Api.Currency.Service;
 
 namespace Backend.Test.Currency.Service;
 
