@@ -46,7 +46,7 @@ public class TransformCurrencyToWordsService : ITransformCurrencyToWordsService
         if(hundreds > 0)
         {
             var hundredsString = HundredsToWords(hundreds);
-            stringResult += $"{hundredsString} dollar{(hundreds > 1 ? "s" : "")} ";
+            stringResult += $"{hundredsString} dollar{(intAmount == 1 ? "" : "s")} ";
         }
         
         if(tensDecimals > 0)

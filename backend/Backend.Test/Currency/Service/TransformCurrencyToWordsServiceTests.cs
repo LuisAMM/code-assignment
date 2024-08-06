@@ -118,4 +118,15 @@ public class TransformCurrencyToWordsServiceTests
         result.IsSuccess.ShouldBeTrue();
         result.Value.Value.ShouldBe("twenty-five dollars and ten cents");
     }
+
+    [Fact]
+    public void ToDollars_ReturnPlural_WhenHundredsIsOne()
+    {
+        const decimal number = 51451001;
+        
+        var result = _sut.ToDollars(number);
+        
+        result.IsSuccess.ShouldBeTrue();
+        result.Value.Value.ShouldBe("fifty-one million four hundred fifty-one thousand one dollars");
+    }
 }
