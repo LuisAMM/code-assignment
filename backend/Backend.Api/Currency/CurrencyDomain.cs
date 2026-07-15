@@ -7,7 +7,7 @@ public static class CurrencyDomain
 {
     public static IServiceCollection AddCurrency(this IServiceCollection services)
         => services
-            .AddSingleton<INumberToWordsConverter, EnglishNumberToWordsConverter>()
-            .AddSingleton<INumberToWordsConverter, GermanNumberToWordsConverter>()
+            .AddTransient<INumberToWordsConverter, EnglishNumberToWordsConverter>()
+            .AddTransient<INumberToWordsConverter, GermanNumberToWordsConverter>()
             .AddTransient<ITransformCurrencyToWordsService, TransformCurrencyToWordsService>();
 }

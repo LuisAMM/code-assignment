@@ -1,9 +1,18 @@
 <form [formGroup]="currencyConverterForm" class="form-container">
   <mat-form-field>
-    <mat-label>Enter an amount</mat-label>
-    <input matInput placeholder="85" formControlName="amount" type="number">
+    <mat-label>{{ translationService.texts().languageLabel }}</mat-label>
+    <mat-select formControlName="language">
+      @for (option of languageOptions; track option.value) {
+        <mat-option [value]="option.value">{{ option.label }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ translationService.texts().amountLabel }}</mat-label>
+    <input matInput [placeholder]="translationService.texts().amountPlaceholder" formControlName="amount" type="number">
     @if (currencyConverterForm.controls.amount.invalid) {
-      <mat-error>Invalid amount</mat-error>
+      <mat-error>{{ errorMessage || translationService.texts().invalidAmount }}</mat-error>
     }
   </mat-form-field>
 
@@ -14,6 +23,6 @@
   }
 
   <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()"
-    [disabled]="currencyConverterForm.invalid">Submit
+    [disabled]="currencyConverterForm.invalid">{{ translationService.texts().submit }}
   </button>
 </form>

@@ -2,7 +2,7 @@ namespace Backend.Api.Currency.Domain;
 
 public enum Language
 {
-    En,
-    De
+    En = 1,
+    De = 2
 }
 
