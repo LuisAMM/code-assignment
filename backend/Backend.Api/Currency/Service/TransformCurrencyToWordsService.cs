@@ -12,7 +12,7 @@ public class TransformCurrencyToWordsService : ITransformCurrencyToWordsService
     private const int Ten = 10;
     private const int One = 1;
     
-    public Result<CurrencyResult> ToDollars(decimal amount)
+    public Result<CurrencyResult> ToDollars(decimal amount, Language outputLanguage)
     {
         if (amount == 0)
         {
@@ -115,4 +115,10 @@ public class TransformCurrencyToWordsService : ITransformCurrencyToWordsService
         }
         return words;
     }
+}
+
+public enum Language
+{
+    English,
+    German
 }
