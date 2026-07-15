@@ -11,19 +11,18 @@ import {NgIf} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 
 @Component({
-  selector: 'app-currency-converter',
-  standalone: true,
-  imports: [
-    MatInput,
-    NgIf,
-    MatButton,
-    MatFormField,
-    MatError,
-    ReactiveFormsModule,
-    MatLabel
-  ],
-  templateUrl: './currency-converter.component.html',
-  styleUrl: './currency-converter.component.scss'
+    selector: 'app-currency-converter',
+    imports: [
+        MatInput,
+        NgIf,
+        MatButton,
+        MatFormField,
+        MatError,
+        ReactiveFormsModule,
+        MatLabel
+    ],
+    templateUrl: './currency-converter.component.html',
+    styleUrl: './currency-converter.component.scss'
 })
 export class CurrencyConverterComponent implements OnInit {
 
