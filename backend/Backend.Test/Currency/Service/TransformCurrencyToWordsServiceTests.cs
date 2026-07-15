@@ -1,11 +1,12 @@
 using Backend.Api.Currency.Domain.Errors;
 using Backend.Api.Currency.Service;
+using Backend.Api.Currency.Service.Converters;
 
 namespace Backend.Test.Currency.Service;
 
 public class TransformCurrencyToWordsServiceTests
 {
-    private readonly TransformCurrencyToWordsService _sut = new();
+    private readonly TransformCurrencyToWordsService _sut = new([new EnglishNumberToWordsConverter(), new GermanNumberToWordsConverter()]);
 
     [Fact]
     public void ToDollars_ReturnsError_WhenNumberIsGreaterThanMax()

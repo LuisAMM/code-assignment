@@ -7,20 +7,19 @@ import { HttpErrorResponse } from '@angular/common/http';
 import {CurrencyError} from '../../dtos/currency-error.dto';
 import {ErrorType} from '../../enums/error-type.enum';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {NgIf} from '@angular/common';
+
 import {MatButton} from '@angular/material/button';
 
 @Component({
     selector: 'app-currency-converter',
     imports: [
-        MatInput,
-        NgIf,
-        MatButton,
-        MatFormField,
-        MatError,
-        ReactiveFormsModule,
-        MatLabel
-    ],
+    MatInput,
+    MatButton,
+    MatFormField,
+    MatError,
+    ReactiveFormsModule,
+    MatLabel
+],
     templateUrl: './currency-converter.component.html',
     styleUrl: './currency-converter.component.scss'
 })

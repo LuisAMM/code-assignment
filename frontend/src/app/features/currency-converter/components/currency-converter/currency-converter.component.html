@@ -2,14 +2,18 @@
   <mat-form-field>
     <mat-label>Enter an amount</mat-label>
     <input matInput placeholder="85" formControlName="amount" type="number">
-    <mat-error *ngIf="currencyConverterForm.controls.amount.invalid">Invalid amount</mat-error>
+    @if (currencyConverterForm.controls.amount.invalid) {
+      <mat-error>Invalid amount</mat-error>
+    }
   </mat-form-field>
 
-  <div class="result-container" *ngIf="resultAmount.length > 0">
-    <p>{{ resultAmount }}</p>
-  </div>
+  @if (resultAmount.length > 0) {
+    <div class="result-container">
+      <p>{{ resultAmount }}</p>
+    </div>
+  }
 
   <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()"
-          [disabled]="currencyConverterForm.invalid">Submit
+    [disabled]="currencyConverterForm.invalid">Submit
   </button>
 </form>

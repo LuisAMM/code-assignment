@@ -1,6 +1,7 @@
 using Backend.Api.Currency.Controller;
 using Backend.Api.Currency.Dto;
 using Backend.Api.Currency.Service;
+using Backend.Api.Currency.Service.Converters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -12,7 +13,7 @@ public class GetCurrencyControllerTests
     
     public GetCurrencyControllerTests()
     {
-        var transformCurrencyToWordsService = new TransformCurrencyToWordsService();
+        var transformCurrencyToWordsService = new TransformCurrencyToWordsService([new EnglishNumberToWordsConverter(), new GermanNumberToWordsConverter()]);
         _sut = new CurrencyController(transformCurrencyToWordsService);
     }   
     

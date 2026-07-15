@@ -5,5 +5,5 @@ namespace Backend.Api.Currency.Service;
 
 public interface ITransformCurrencyToWordsService
 {
-    Result<CurrencyResult> ToDollars(decimal amount);
+    Result<CurrencyResult> ToDollars(decimal amount, Language language = Language.En);
 }

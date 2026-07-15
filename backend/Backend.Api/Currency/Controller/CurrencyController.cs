@@ -1,3 +1,4 @@
+using Backend.Api.Currency.Domain;
 using Backend.Api.Currency.Domain.Errors;
 using Backend.Api.Currency.Dto;
 using Backend.Api.Currency.Service;
@@ -12,9 +13,9 @@ namespace Backend.Api.Currency.Controller;
 public class CurrencyController(ITransformCurrencyToWordsService transformCurrencyToWordsService) : ControllerBase
 {
     [HttpGet]
-    public Results<Ok<CurrencyResultDto>, BadRequest<CurrencyError>> ConvertToDollar([FromQuery] decimal amount)
+    public Results<Ok<CurrencyResultDto>, BadRequest<CurrencyError>> ConvertToDollar([FromQuery] decimal amount, [FromQuery] Language language = Language.En)
     {
-        var result = transformCurrencyToWordsService.ToDollars(amount);
+        var result = transformCurrencyToWordsService.ToDollars(amount, language);
         if (result.IsFailed)
         {
             return result switch
