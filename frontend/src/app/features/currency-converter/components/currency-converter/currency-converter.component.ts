@@ -3,7 +3,7 @@ import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/inpu
 import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CurrencyConverterService} from '../../services/currency-converter.service';
 import {take} from 'rxjs';
-import {HttpErrorResponse} from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import {CurrencyError} from '../../dtos/currency-error.dto';
 import {ErrorType} from '../../enums/error-type.enum';
 import {MatSnackBar} from '@angular/material/snack-bar';
